@@ -10,12 +10,13 @@ import android.widget.TextView;
 public class Main2Activity extends AppCompatActivity {
 
 
-    int numOfPlayers;
+    private int numOfPlayers;
     public static Player[] players;
-    int count = 0;
-    Button nameButton;
-    Button startButton;
-    TextView text;
+    private int count = 0;
+    private Button nameButton;
+    private Button startButton;
+    private TextView text;
+    private String empty = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class Main2Activity extends AppCompatActivity {
         startButton = (Button)findViewById(R.id.startButtonAct2);
         text = (TextView)findViewById(R.id.meetingTextAct2);
 
-        numOfPlayers = getIntent().getExtras().getInt("chuvaki");
+        numOfPlayers = MainActivity.numOfPlayers;
 
         String finalHello = "Всего игроков " + numOfPlayers + ", это хорошо!" +
                 "\nА теперь дружно введите свои имена и жмите Start!";
@@ -42,23 +43,25 @@ public class Main2Activity extends AppCompatActivity {
         TextView textView = (TextView)findViewById(R.id.nameTextAct2);
         String playerName = textView.getText().toString();
 
-        players[count] = new Player(playerName);
 
-        text.setText(text.getText().toString() + "\n" + (count + 1) + " " + playerName);
-        count++;
+        if (playerName.equals(empty)){text.setText("Enter your name, please!"); }
+        else {
+            players[count] = new Player(playerName);
 
-        if (count == numOfPlayers){
-            nameButton.setEnabled(false);
-            startButton.setEnabled(true);
-            text.setText(text.getText().toString() + "\nИгроки готовы!");
+            text.setText(text.getText().toString() + "\n" + (count + 1) + ": " + playerName);
+            count++;
+            if (count == numOfPlayers) {
+                nameButton.setEnabled(false);
+                startButton.setEnabled(true);
+                text.setText(text.getText().toString() + "\nИгроки готовы!");
+            }
         }
+        textView.setText(empty);
     }
 
     public void startClick(View view){
-        text.setText("ТУСА НАЧИНАЕТСЯ!");
-
         Intent gameIntent = new Intent(Main2Activity.this, GameActivity.class);
-        gameIntent.putExtra("NumberOfPlayers", numOfPlayers);
         startActivity(gameIntent);
+        this.finish();
     }
 }

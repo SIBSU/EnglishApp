@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="questions">
+        <item>" She 'ходит' to the pool"</item>
+        <item>" 'Ходит ли он' to the pool"</item>
+        <item>" 'Ты хочешь' visit Moscow?"</item>
+        <item>" 'Я не приду' to the party"</item>
+
+        <item>" I love music very '...' "</item>
+        <item>" Do you want 'несколько' acorns?"</item>
+        <item>" He works 'только' 5 days a week"</item>
+        <item>" He's only '15' (лет) "</item>
+
+        <item>" This rock is too (тяжёлый) "</item>
+        <item>" I was 5 years old when brother (ушёл)"</item>
+        <item>" I will (закончу) this school this year"</item>
+        <item>" My sister live in (квартира)"</item>
+    </string-array>
+
+
+    <string-array name="answers">
+        <item>"1. go, 2. went, 3. goes, 4. walk"</item>
+        <item>"1.Did he goes, 2.Do he goes , 3.Does he goes , 4.Does he go "</item>
+        <item>"1.You want, 2.Does you want, 3.Do you want, 4.Did want you"</item>
+        <item>"1.I will not come, 2.I will don't come, 3.I will don't came, 4.I don't come"</item>
+
+        <item>"1. much, 2. more, 3. big, 4. lot"</item>
+        <item>"1. some, 2. same, 3. any, 4. much"</item>
+        <item>"1. just, 2. least, 3. at least, 4. only"</item>
+        <item>"1. fiveteen, 2. fifteen, 3. fifty, 4. five ten"</item>
+
+        <item>"1. hard, 2.difficult, 3. powerful, 4. big"</item>
+        <item>"1. leave, 2. go, 3. went, 4. left"</item>
+        <item>"1. leave, 2. graduate, 3. end, 4. stop"</item>
+        <item>"1. block of flats, 2. home, 3. flat, 4. house"</item>
+    </string-array>
+
+
+    <integer-array name="rightAnswers">
+        <item>3</item>
+        <item>4</item>
+        <item>3</item>
+        <item>1</item>
+
+        <item>1</item>
+        <item>3</item>
+        <item>4</item>
+        <item>2</item>
+
+        <item>1</item>
+        <item>4</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+
+
+</resources>
