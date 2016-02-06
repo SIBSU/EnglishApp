@@ -1,10 +1,14 @@
 package tk.flameous.englishapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
@@ -16,7 +20,6 @@ public class Main2Activity extends AppCompatActivity {
     private Button nameButton;
     private Button startButton;
     private TextView text;
-    private String empty = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,15 @@ public class Main2Activity extends AppCompatActivity {
         text.setText(finalHello);
 
         players = new Player[numOfPlayers];
+
+        EditText userNameText = (EditText) findViewById(R.id.nameTextAct2);
+        userNameText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                nameClick(v);
+                return true;
+            }
+        });
     }
 
     public void nameClick(View view){
@@ -44,6 +56,7 @@ public class Main2Activity extends AppCompatActivity {
         String playerName = textView.getText().toString();
 
 
+        String empty = "";
         if (playerName.equals(empty)){text.setText("Enter your name, please!"); }
         else {
             players[count] = new Player(playerName);
@@ -54,6 +67,10 @@ public class Main2Activity extends AppCompatActivity {
                 nameButton.setEnabled(false);
                 startButton.setEnabled(true);
                 text.setText(text.getText().toString() + "\nИгроки готовы!");
+
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(startButton.getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
             }
         }
         textView.setText(empty);

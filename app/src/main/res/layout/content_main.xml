@@ -38,7 +38,8 @@
         android:ems="10"
         android:id="@+id/editTextAct1"
         android:layout_above="@+id/ActButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:imeOptions="actionGo"/>
 
     <TextView
         android:layout_width="wrap_content"

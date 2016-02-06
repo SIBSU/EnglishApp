@@ -42,9 +42,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/nameTextAct2"
             android:enabled="true"
-            android:editable="true"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName" />
 
         <Button
             android:layout_width="wrap_content"
@@ -52,9 +51,7 @@
             android:text="Да, это моё имя!"
             android:id="@+id/nameButtonAct2"
             android:enabled="true"
-            android:onClick="nameClick"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:onClick="nameClick"/>
 
     </LinearLayout>
 
