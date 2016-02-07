@@ -18,9 +18,57 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Cool English App"
         android:id="@+id/textView"
-        android:layout_above="@+id/ActButton"
+        android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="74dp" />
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linearLayout"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:id="@+id/oneButton"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:enabled="false" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:id="@+id/twoButton"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:enabled="true" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:id="@+id/threeButton"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:enabled="true" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:id="@+id/fourButton"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:enabled="true" />
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -28,18 +76,10 @@
         android:text="Let&apos;s start!"
         android:id="@+id/ActButton"
         android:onClick="anotherClick"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextAct1"
-        android:layout_above="@+id/ActButton"
+        android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:imeOptions="actionGo"/>
+        android:layout_marginTop="40dp"
+        style="@style/Widget.AppCompat.Button.Colored" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,8 +87,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Введите кол-во игроков (1-4)"
         android:id="@+id/textView2"
-        android:layout_above="@+id/editTextAct1"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
 
     <ImageView
         android:layout_width="100dp"

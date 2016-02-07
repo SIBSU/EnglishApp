@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +14,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public static int numOfPlayers = 1;
+    private Button oneButton;
+    private Button twoButton;
+    private Button threeButton;
+    private Button fourButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,61 +26,48 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final EditText userCountText = (EditText) findViewById(R.id.editTextAct1);
-        userCountText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                anotherClick(v);
-                return true;
-            }
-        });
+        oneButton = (Button) findViewById(R.id.oneButton);
+        twoButton = (Button) findViewById(R.id.twoButton);
+        threeButton = (Button) findViewById(R.id.threeButton);
+        fourButton = (Button) findViewById(R.id.fourButton);
+    }
 
-        userCountText.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                char putChar = event.getNumber();
+    public void selectClick(View view) {
+        int id = view.getId();
 
-                int count;
-                try {
-                    count = Integer.decode(String.valueOf(putChar));
-                } catch (NumberFormatException e) {
-                    return false;
-                }
-
-                if (userCountText.getText().length() > 0) {
-                    return true;
-                }
-                if (count < 1) {
-                    userCountText.setText("1");
-                    userCountText.setSelection(1);
-                    return true;
-                }
-                if (count > 4) {
-                    userCountText.setText("4");
-                    userCountText.setSelection(1);
-                    return true;
-                }
-
-                return false;
-            }
-        });
+        switch (id) {
+            case R.id.oneButton:
+                numOfPlayers = 1;
+                oneButton.setEnabled(false);
+                twoButton.setEnabled(true);
+                threeButton.setEnabled(true);
+                fourButton.setEnabled(true);
+                break;
+            case R.id.twoButton:
+                numOfPlayers = 2;
+                oneButton.setEnabled(true);
+                twoButton.setEnabled(false);
+                threeButton.setEnabled(true);
+                fourButton.setEnabled(true);
+                break;
+            case R.id.threeButton:
+                numOfPlayers = 3;
+                oneButton.setEnabled(true);
+                twoButton.setEnabled(true);
+                threeButton.setEnabled(false);
+                fourButton.setEnabled(true);
+                break;
+            case R.id.fourButton:
+                numOfPlayers = 4;
+                oneButton.setEnabled(true);
+                twoButton.setEnabled(true);
+                threeButton.setEnabled(true);
+                fourButton.setEnabled(false);
+                break;
+        }
     }
 
     public void anotherClick(View view){
-        TextView textAct1 = (TextView)findViewById(R.id.editTextAct1);
-        String strPlayers = textAct1.getText().toString();
-
-        switch (strPlayers){
-            case "2": numOfPlayers = 2;
-                break;
-            case "3": numOfPlayers = 3;
-                break;
-            case "4": numOfPlayers = 4;
-                break;
-            default:
-                break;
-        }
-
         Intent intent = new Intent(MainActivity.this, Main2Activity.class);
         startActivity(intent);
         this.finish();
